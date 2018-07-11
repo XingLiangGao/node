@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //.filter()
+    const studentsAge = [12, 14, 14, 15, 16, 17];
+    const ableToDrink = studentsAge.filter(age => age > 14);
+    console.log(ableToDrink)
+    //.map()
+
+    //.reduce()
+
+    //.forEach()
+
+    //.some()
+
+    //.every()
+
+    //.includes()
+    const names = ['sophie', 'george', 'waldo', 'stephen', 'henry'];
+    const includesWaldo = names.includes('waldo');
+    console.log(includesWaldo)
+    //Array.from()
+    const newArray = Array.from('hello');
+    console.log(newArray)
+    const doubledValues = Array.from([2, 3, 4], some => some * 2);
+    console.log(doubledValues)
+    //Object.values()
+    /*返回一个对象属性值的数组*/
+
+    //Object.keys()
+    /*返回一个对象属性名的数组*/
+
+    //Object.entries()
+    /*创建一个数组，其中包含一个对象的键/值对数组*/
+    const weather = {
+        rain: 0,
+        temperature: 24,
+        humidity: 33,
+    }
+    const entries = Object.entries(weather);
+    console.log(entries)
+    //Array spread（数组展开）
+
+    //Object spread（对象展开）
+
+    //Function Rest（剩余参数）
+    function displayArgumentsArray(...theArguments) {
+        console.log(theArguments);
+    }
+    displayArgumentsArray('hi', 'there', 'bud');
+    //Object.freeze()
+    /*防止你修改现有的对象属性或向对象添加新的属性和值。通常人们认为 const 会这样做，但是  const 允许你修改对象。*/
+    const frozenObject = {
+        name: 'Robert'
+    }
+    Object.freeze(frozenObject); 
+    frozenObject.name = 'Henry';
+    console.log(frozenObject)
+    //Object.seal()
+    /*拒绝将任何新属性添加到对象，但允许更改现有属性。*/
+    const sealedObject = {
+        name: 'Robert'
+    }
+    Object.seal(sealedObject);
+    sealedObject.name = 'Bob';
+    sealedObject.wearsWatch = true;
+    //Object.assign()
+    
+    </script>
+</body>
+</html>

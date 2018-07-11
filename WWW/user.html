@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    用户：
+    <input type="text" name="user" id="username">
+    <br> 密码：
+    <input type="password" name="pass" id="password">
+    <br>
+    <input type="button" id="resg_btn" value="注册">
+    <input type="button" id="login_btn" value="登陆">
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var oText = document.getElementById('username');
+    var oPass = document.getElementById('password');
+    var resgBtn = document.getElementById('resg_btn');
+    var loginBtn = document.getElementById('login_btn');
+
+    resgBtn.onclick = function () {
+        axios.get('/user', {
+            params: {
+                act: 'reg',
+                user: oText.value,
+                pass: oPass.value
+            }
+        })
+            .then(function (res) {
+                if (res.data.ok) {
+                    alert('注册成功')
+                } else {
+                    alert(res.data.msg)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    loginBtn.onclick = function() {
+        axios.get('/login', {
+            params: {
+                act: 'login',
+                user: oText.value,
+                pass: oPass.value
+            }
+        })
+            .then(function(res) {
+                if (res.data.ok) {
+                    alert('登陆成功')
+                    window.location.href="http://localhost:9090/index.html" 
+                } else {
+                    alert(res.data.msg)
+                }
+            })
+    }
+</script>
+
+</html>
