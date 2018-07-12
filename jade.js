@@ -3,8 +3,8 @@ const fs = require('fs');
 
 // var str = jade.render('html')
 
-var str = jade.renderFile('./view/1.jade', {pretty: true})
-fs.writeFile('./build/jade1.html', str, function(err) {
+var str = jade.renderFile('./view/index.jade', {pretty: true})
+fs.writeFile('./build/jade.html', str, function(err) {
     if(err) {
         console.log('写入失败')
     } else {
